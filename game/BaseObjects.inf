@@ -1,0 +1,6 @@
+!============================================================================
+! Object classes
+Class Room
+    with description "UNDER CONSTRUCTION",
+    has light;
+

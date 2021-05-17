@@ -1,0 +1,5 @@
+Room elevator_room "Inside the Elevator"
+    with description "An elegant, gold and mahogany elevator.  One door to the north leads out.
+    A panel to the right of the door contains a set of five buttons, and a dial above the door
+    shows the current floor the elevator is on.",
+    with floor 0;

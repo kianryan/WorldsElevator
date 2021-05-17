@@ -1,0 +1,38 @@
+{
+    "cSpell.enableFiletypes": [
+        "inform6"
+    ],
+    "cSpell.enabled": true,
+    "cSpell.words": [
+        "DEFART",
+        "GLULX",
+        "ISARE",
+        "Ifdef",
+        "Ifnot",
+        "NOARTICLE",
+        "Plex",
+        "Vorple",
+        "WORKFLAG",
+        "ZCODE",
+        "beforefirstcommand",
+        "blowable",
+        "centered",
+        "cuttable",
+        "deadflag",
+        "hasnt",
+        "interpretercredit",
+        "lineinput",
+        "lookmode",
+        "metaclass",
+        "objectloop",
+        "ofclass",
+        "pluralname",
+        "preconnect",
+        "rfalse",
+        "rockpool",
+        "rtrue",
+        "senc",
+        "strikethrough",
+        "uiblock"
+    ]
+}
