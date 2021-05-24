@@ -33,14 +33,16 @@ const elevator = {
     this.buttons[idx].enabled = ! disabled; /* May come in as 1/0 */
   },
 
-  /* Draw current state on to the elevator */
-  draw: function(canvas) {
+  updateFloor: function(floor) {
+    this.current = floor;
+  },
+
+  /* Draw current button state on to the elevator */
+  drawPanel: function(canvas) {
 
     var ctx = canvas.getContext('2d');
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    var e = this;
 
     const height = parseInt(canvas.getAttribute("height"));
 
@@ -55,6 +57,38 @@ const elevator = {
       }
     });
   },
+
+  drawDial: function(canvas) {
+
+    var ctx = canvas.getContext('2d');
+    ctx.lineWidth = 1;
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    ctx.beginPath();
+
+    ctx.arc(canvas.height, canvas.width / 2, canvas.width / 2, Math.PI * 1, 0, false);
+
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.lineWidth = 10;
+
+    ctx.moveTo(canvas.height, canvas.width / 2);
+
+    /* Draw the hand */
+
+
+    const floors = 4;
+
+    const x = 150 * Math.cos(Math.PI + (Math.PI / floors) * this.current) + canvas.width / 2;
+    const y = 150 * Math.sin(Math.PI + (Math.PI / floors) * this.current) + canvas.height;
+
+    ctx.lineTo(x, y) // Going to need to calculate the line on the arc.
+
+    ctx.stroke();
+  },
+
 
   bind: function(canvas, cmd) {
 

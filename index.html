@@ -27,6 +27,14 @@
     </div>
 </main>
 
+<nav class="game-header">
+
+    <canvas id="elevator_dial" width="300" height="151">
+
+    </canvas>
+
+</nav>
+
 <nav class="game-nav">
 
     <canvas id="elevator_panel" width="150" height="300">
@@ -50,12 +58,14 @@
     vorple.init();
 
     const elevatorPanel = document.getElementById('elevator_panel');
+    const elevatorDial = document.getElementById('elevator_dial');
 
-    window.elevatorDraw = function() {
-        elevator.draw(elevatorPanel);
+    window.drawElevator = function() {
+        elevator.drawPanel(elevatorPanel);
+        elevator.drawDial(elevatorDial);
     };
     elevator.bind(elevatorPanel, (btn) => vorple.prompt.submit(`press button ${btn.idx}`));
-    window.elevatorDraw();
+    window.drawElevator();
 </script>
 </body>
 </html>

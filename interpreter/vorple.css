@@ -363,6 +363,8 @@ body .vex.vex-theme-plain .vex-content {
 }
 
 
+
+
 /* Responsive classes */
 
 nav.game-nav #elevator_panel {
@@ -381,45 +383,35 @@ nav.game-nav ul li a {
     cursor: pointer;
 }
 
-/* @media screen and (max-width: 999px) {
-    nav.game-nav {
-        position: sticky;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 3rem;
-        background-color: var(--main-bg-color);
-        border: 1px solid black;
-        box-shadow: 5px 5px 5px var(--main-bg-color);
-    }
+nav.game-nav {
+    position: fixed;
+    left: 30px;
+    top: 30px;
+    background-color: var(--main-bg-color);
+    /* border: 1px solid black; */
+    box-shadow: 5px 5px 5px var(--main-bg-color);
+    width: 10rem;
+}
 
-    nav.game-nav ul {
-        display: inline-block;
-    }
+nav.game-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 170px;
+    background: white;
+}
 
-    nav.game-nav ul li {
-        margin: 0 0.5rem;;
-        display: inline-block;
-    }
+nav.game-header #elevator_dial {
+    background: goldenrod;
+    margin: 0 auto;
+    display: block;
 
-    .pull-right {
-        float: right;
-        margin-right: 10px;
-    } */
-/* } */
+}
 
-/* /* @media screen and (min-width: 1000px) { */
-    nav.game-nav {
-        position: fixed;
-        left: 30px;
-        top: 30px;
-        background-color: var(--main-bg-color);
-        /* border: 1px solid black; */
-        box-shadow: 5px 5px 5px var(--main-bg-color);
-        width: 10rem;
-    }
-
-/* } */
+#vorple {
+    margin-top: 170px;
+}
 
 @media screen and (min-width: 569px) {
     .sm-only {

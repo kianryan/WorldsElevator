@@ -29,8 +29,9 @@ Array javascriptCmd buffer 300;
 
 ! Call JS to update the UI with the current panel state.
 [UpdateUIButtonsSub i;
-    for (i=0 : i<5 : i++) {
 
+    ! Update button states
+    for (i=0 : i<5 : i++) {
         bp_output_stream(3, javascriptCmd, 300);
         print "elevator.updateButton(";
         print i;
@@ -41,5 +42,15 @@ Array javascriptCmd buffer 300;
 
         VorpleExecuteJavaScriptCommand(javascriptCmd);
     }
-    VorpleExecuteJavaScriptCommand("window.elevatorDraw();");
+
+    ! Update current floor
+    bp_output_stream(3, javascriptCmd, 300);
+    print "elevator.updateFloor(";
+    print elevator_room.floor;
+    print ");";
+    bp_output_stream(-3);
+
+    VorpleExecuteJavaScriptCommand(javascriptCmd);
+
+    VorpleExecuteJavaScriptCommand("window.drawElevator();");
 ];
