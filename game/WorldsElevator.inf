@@ -75,11 +75,13 @@ Global VorpleParserError = 0;		! do we need a tooltip on the prompt
     VorpleInitialise();
 
     VorpleBoxedQuotation("");
+
+    buttonState-->4 = 1;
 ];
 
 
 ! Standard and extended grammar
 Include "Grammar";
 !============================================================================
-! Include ">ExtendedGrammar";
+Include ">ExtendedGrammar";
 

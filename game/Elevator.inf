@@ -1,5 +1,45 @@
+Attribute enabled;
+
 Room elevator_room "Inside the Elevator"
     with description "An elegant, gold and mahogany elevator.  One door to the north leads out.
     A panel to the right of the door contains a set of five buttons, and a dial above the door
     shows the current floor the elevator is on.",
     with floor 0;
+
+Array buttonState --> 5;
+
+Object -> elevator_panel "Button Panel"
+    with description "A golden button panel with five golden buttons, each numbered
+    from bottom to top. Lights illuminate some of the buttons, and a ring of light
+    encircles",
+         name 'panel',
+    has container open openable;
+
+Class Button
+    with name 'button' 'buttons',
+         short_name "button",
+         description "It's a button",
+         plural "buttons";
+
+! Think we're better off declaring a button and an array of state.
+
+Button -> ->;
+
+Array javascriptCmd buffer 300;
+
+! Call JS to update the UI with the current panel state.
+[UpdateUIButtonsSub i;
+    for (i=0 : i<5 : i++) {
+
+        bp_output_stream(3, javascriptCmd, 300);
+        print "elevator.updateButton(";
+        print i;
+        print ",";
+        print buttonState-->i;
+        print ");";
+        bp_output_stream(-3);
+
+        VorpleExecuteJavaScriptCommand(javascriptCmd);
+    }
+    VorpleExecuteJavaScriptCommand("window.elevatorDraw();");
+];

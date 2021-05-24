@@ -51,8 +51,11 @@
 
     const elevatorPanel = document.getElementById('elevator_panel');
 
-    elevator.draw(elevatorPanel);
+    window.elevatorDraw = function() {
+        elevator.draw(elevatorPanel);
+    };
     elevator.bind(elevatorPanel, (btn) => vorple.prompt.submit(`press button ${btn.idx}`));
+    window.elevatorDraw();
 </script>
 </body>
 </html>

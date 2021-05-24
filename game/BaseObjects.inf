@@ -4,3 +4,8 @@ Class Room
     with description "UNDER CONSTRUCTION",
     has light;
 
+Class Prop
+    with description "WORKING ON IT",
+    has scenery;
+
+

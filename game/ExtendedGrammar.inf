@@ -1,0 +1,36 @@
+
+! http://www.inform-fiction.org/manual/html/sa6.html#ans89
+
+! Attempt to push the relevant button
+[PushButtonSub;
+    if (noun == nothing) print_ret "What *are* you trying to push?";
+    if (noun ofclass Button) {
+
+        if (second > 4) {
+            "You don't see that button here";
+        }
+
+        if (buttonState-->second == 1) {
+            "You try press the " , second , " button, but find it does nothing.";
+        }
+
+        elevator_room.floor = second;
+
+        print "You press the ", second , " button, the doors close and the elevator
+        takes you to that floor.";
+
+        if (second == 3) {
+            buttonState-->4 = 0;
+        }
+
+        UpdateUIButtonsSub();
+
+        rtrue;
+   }
+
+
+];
+
+Extend 'push'
+    ! * number -> PushButtonVague;
+    * noun number -> PushButton;

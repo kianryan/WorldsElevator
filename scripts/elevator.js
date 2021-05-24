@@ -25,10 +25,20 @@ const elevator = {
     }
   ],
 
+  // Update button, called from Vorple
+  updateButton: function(idx, disabled) {
+
+    /* This data comes in backwards... */
+
+    this.buttons[idx].enabled = ! disabled; /* May come in as 1/0 */
+  },
+
   /* Draw current state on to the elevator */
   draw: function(canvas) {
 
     var ctx = canvas.getContext('2d');
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     var e = this;
 
@@ -37,7 +47,12 @@ const elevator = {
     this.buttons.forEach(btn => {
       ctx.beginPath();
       ctx.arc(btn.x, height - btn.y, 20, 0, Math.PI * 2, false);
-      ctx.stroke();
+
+      if (btn.enabled) {
+        ctx.stroke();
+      } else {
+        ctx.fill();
+      }
     });
   },
 
@@ -67,9 +82,6 @@ const elevator = {
 
       collide.forEach((btn) => console.info(`Floor button ${btn.idx} clicked`));
     });
-
-
-
   },
 
 };
